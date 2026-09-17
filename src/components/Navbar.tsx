@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </div>
 
-          <div className="pt-3 border-t border-white/15 flex flex-col gap-2.5">
+          <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2.5">
             <button
               id="mobile-login-btn"
               onClick={() => {
