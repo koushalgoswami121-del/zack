@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id={`nav-item-${item.id}`}
                 onClick={() => handleNavClick(item.id)}
                 className={`text-sm font-medium transition-colors relative py-1 focus:outline-none ${
-                  isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                  isActive ? 'text-white' : 'text-emerald-100/75 hover:text-white
                 }`}
               >
                 <span>{item.label}</span>
