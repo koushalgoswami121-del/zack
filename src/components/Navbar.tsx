@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, ArrowRight, Menu, X } from 'lucide-react';
 import { NavTab } from '../types';
 
@@ -16,6 +16,33 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+    const handleScroll = () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+
+      // Always show when near the very top of the page
+      if (currentScrollY <= 60) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 8) {
+        // Scrolling DOWN -> fade away & hide
+        if (!mobileMenuOpen) {
+          setIsVisible(false);
+        }
+      } else if (currentScrollY < lastScrollY && lastScrollY - currentScrollY > 8) {
+        // Scrolling UP -> appear & fade in
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [mobileMenuOpen]);
 
   const navItems: { id: NavTab; label: string }[] = [
     { id: 'home', label: 'Home' },
@@ -28,11 +55,18 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNavClick = (tab: NavTab) => {
     onTabChange(tab);
     setMobileMenuOpen(false);
+    setIsVisible(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="w-full bg-[#093c36]/90 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all">
+    <header
+      className={`w-full bg-[#093c36]/90 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.06)] transform transition-all duration-300 ease-in-out ${
+        isVisible
+          ? 'translate-y-0 opacity-100 pointer-events-auto'
+          : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <button
