@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-search-btn"
             onClick={onOpenSearch}
-            className="p-2 text-white/85 hover:text-white rounded-full hover:bg-white/10 transition-colors focus:outline-none"
+            className="p-2 text-emerald-100/80 hover:text-white rounded-full hover:bg-white/[0.07] transition-colors focus:outline-none"
             aria-label="Search courses and resources"
             title="Search (⌘K)"
           >
