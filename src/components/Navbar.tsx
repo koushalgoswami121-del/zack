@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="w-full bg-[#0d554d] text-white sticky top-0 z-50 border-b border-white/10 transition-colors">
+    <header className="w-full bg-[#0a3e37]/80 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/[0.08] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <button
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a463f] border-b border-white/15 px-4 pt-3 pb-6 space-y-3 animate-in fade-in duration-200">
+        <div className="md:hidden bg-[#08352f]/95 backdrop-blur-xl border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
           <div className="grid grid-cols-2 gap-2">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;

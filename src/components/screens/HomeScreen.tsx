@@ -326,8 +326,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       </section>
 
       {/* Final Call to Action Strip */}
-      <section className="bg-[#0d554d] text-white py-16 sm:py-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 hero-grid opacity-60 pointer-events-none" />
+      <section className="bg-[#0d554d] bg-[radial-gradient(ellipse_120%_80%_at_50%_0%,#115d54_0%,#0d554d_50%,#0a403a_100%)] text-white py-16 sm:py-20 text-center relative overflow-hidden">
+        <div className="absolute inset-0 hero-grid opacity-50 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Ready to Build a <span className="text-[#c6f135]">Bigger</span> Future in AI?
