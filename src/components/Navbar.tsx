@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="w-full bg-[#0a3e37]/80 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/[0.08] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] transition-all">
+    <header className="w-full bg-[#093c36]/90 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <button
@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id={`nav-item-${item.id}`}
                 onClick={() => handleNavClick(item.id)}
                 className={`text-sm font-medium transition-colors relative py-1 focus:outline-none ${
-                  isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                  isActive ? 'text-white' : 'text-emerald-100/75 hover:text-white'
                 }`}
               >
                 <span>{item.label}</span>
@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-search-btn"
             onClick={onOpenSearch}
-            className="p-2 text-white/85 hover:text-white rounded-full hover:bg-white/10 transition-colors focus:outline-none"
+            className="p-2 text-emerald-100/80 hover:text-white rounded-full hover:bg-white/[0.07] transition-colors focus:outline-none"
             aria-label="Search courses and resources"
             title="Search (⌘K)"
           >
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-login-btn"
             onClick={() => onOpenAuth('login')}
-            className="text-sm font-medium text-white/90 hover:text-white px-2 py-1 transition-colors focus:outline-none"
+            className="text-sm font-medium text-emerald-100/85 hover:text-white px-2 py-1 transition-colors focus:outline-none"
           >
             Log in
           </button>
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="mobile-search-btn"
             onClick={onOpenSearch}
-            className="p-2 text-white/90 hover:text-white rounded-lg focus:outline-none"
+            className="p-2 text-emerald-100/85 hover:text-white rounded-lg focus:outline-none"
             aria-label="Search"
           >
             <Search className="w-5 h-5" />
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#08352f]/95 backdrop-blur-xl border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
+        <div className="md:hidden bg-[#083631]/95 backdrop-blur-md border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-3 animate-in fade-in duration-200">
           <div className="grid grid-cols-2 gap-2">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </div>
 
-          <div className="pt-3 border-t border-white/15 flex flex-col gap-2.5">
+          <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2.5">
             <button
               id="mobile-login-btn"
               onClick={() => {
