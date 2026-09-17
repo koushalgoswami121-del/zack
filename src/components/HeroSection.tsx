@@ -16,15 +16,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const cutoutSrc = 'https://res.cloudinary.com/qptzllkm/image/upload/v1789631029/ChatGPT_Image_Sep_17_2026_01_13_42_PM.png';
 
   return (
-    <div className="relative bg-[#0d554d] bg-[radial-gradient(ellipse_120%_80%_at_50%_0%,#115d54_0%,#0d554d_50%,#0a403a_100%)] text-white overflow-hidden">
-      {/* Background Orthogonal Grid Pattern - reduced visibility by ~18-20% */}
-      <div className="absolute inset-0 hero-grid pointer-events-none opacity-75" />
+<div className="relative bg-[#0d554d] bg-[radial-gradient(ellipse_100%_80%_at_50%_-15%,rgba(20,105,96,0.5),rgba(13,85,77,0)_70%)] text-white overflow-hidden">
+      {/* Background Orthogonal Grid Pattern - reduced by 15-20% and subtly faded at the bottom */}
+      <div className="absolute inset-0 hero-grid pointer-events-none opacity-75 [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]" />
       
-      {/* Subtle Ambient Lighting & Atmospheric Vignette for Layered Depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/[0.04] via-transparent to-black/[0.12] pointer-events-none" />
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-emerald-400/[0.07] rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[520px] h-[520px] bg-[#c6f135]/[0.04] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#093c36]/50 to-transparent pointer-events-none" />
+      {/* Very Subtle Deepening Layer toward bottom for spatial depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#083631]/35 pointer-events-none" />
+
+      {/* Subtle Ambient Radial Lighting - soft atmospheric diffusion */}
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] bg-emerald-400/[0.07] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#c6f135]/[0.035] rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Hero Container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-0">
