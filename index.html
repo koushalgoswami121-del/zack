@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var defineFetch = function(obj) {
+            try {
+              if (!obj) return;
+              var desc = Object.getOwnPropertyDescriptor(obj, 'fetch');
+              if (!desc || !desc.set) {
+                Object.defineProperty(obj, 'fetch', {
+                  get: function() {
+                    return originalFetch;
+                  },
+                  set: function(val) {
+                    originalFetch = val;
+                  },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+          };
+          defineFetch(window);
+          if (typeof globalThis !== 'undefined') {
+            defineFetch(globalThis);
+          }
+          if (window.Window && window.Window.prototype) {
+            defineFetch(window.Window.prototype);
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Zack. - AI Courses & Consulting</title>
+    <meta name="description" content="Learn AI, build skills, and create a bigger future with practical AI courses and 1:1 consulting from Zack, an AI practitioner." />
+    <meta name="author" content="Zack" />
+    <meta name="theme-color" content="#0d554d" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:site_name" content="Zack. AI Academy" />
+    <meta property="og:title" content="Zack. - AI Courses & Consulting" />
+    <meta property="og:description" content="Learn AI, build skills, and create a bigger future with practical AI courses and 1:1 consulting from Zack, an AI practitioner." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zack. - AI Courses & Consulting" />
+    <meta name="twitter:description" content="Learn AI, build skills, and create a bigger future with practical AI courses and 1:1 consulting from Zack, an AI practitioner." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Zack. AI Academy",
+      "description": "Practical production-grade AI courses and 1:1 executive consulting.",
+      "url": "https://zack.ai",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "149",
+        "highPrice": "249"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
