@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-login-btn"
             onClick={() => onOpenAuth('login')}
-            className="text-sm font-medium text-white/90 hover:text-white px-2 py-1 transition-colors focus:outline-none"
+           className="text-sm font-medium text-emerald-100/85 hover:text-white px-2 py-1 transition-colors focus:outline-none"
           >
             Log in
           </button>
