@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#08352f]/95 backdrop-blur-xl border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
+       <div className="md:hidden bg-[#083631]/95 backdrop-blur-md border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-3 animate-in fade-in duration-200">
           <div className="grid grid-cols-2 gap-2">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
